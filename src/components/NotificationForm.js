@@ -70,6 +70,7 @@ export default class NotificationForm extends Component {
             email: this.state.email,
             phoneNumber: this.state.phoneNumber,
             supervisor: {
+                jurisdiciton: supervisor.jurisdiction,
                 firstName: supervisor.firstName,
                 lastName: supervisor.lastName
             }
@@ -77,24 +78,29 @@ export default class NotificationForm extends Component {
 
         console.log(employee);
 
-        // IMPORTANT NOTE: Front end server uses the port number 3000, not 5000 like the backend port number.
-
-        // HTTP POST REQUEST: post request made to backend BMI API so user's new account is added to the database.
-        axios.post('http://localhost:8080/api/submit', employee)
-            .then(response => console.log(response))
+        // HTTP POST REQUEST: post request made to backend Notification Form API.
+        axios.post("http://localhost:8080/api/submit", employee, {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+              'Access-Control-Allow-Origin': '',
+              'Content-Type': 'application/json',
+            },
+            withCredentials: false,
+          })
             .catch(error => console.log('+ Failed to make the axios post request to add user to the database: ' + error));
 
-        // Takes the user back to the login component.
-        // this.props.history.push('/login');
+        
+        window.alert('Thank you for signing up for supervisor notifications. Information submitted as: \n\n' + JSON.stringify(employee));
     }
 
 
     render() {
         return (
-            <div className="row-fluid bg-body" style={{ margin: '200px auto'}}>
-                <div className="col-sm-4 mx-auto">
+            <div className="row-fluid bg-body" style={{ margin: '250px auto'}}>
+                <div className="col-sm-6 bg-light mx-auto">
                     <form className="card shadow-lg" onSubmit={this.onSubmit} style={{ width: '100%'}}>
-                        <h2 className="card-header text-center bg-dark text-white">Create Account</h2>
+                        <h2 className="card-header text-center bg-dark text-white">Notification Form</h2>
                         <div className="form-group row p-4">
                             <div className="form-group col-md-6">
                                 <label className="fs-5 pb-2" >First Name </label>
@@ -158,7 +164,7 @@ export default class NotificationForm extends Component {
                         </div>
 
                         <div className="form-group pt-4 pb-4">
-                            <input type="submit" value="Submit" className="btn btn-primary" style={{marginLeft: '30px'}} />
+                            <input type="submit" value="Submit" className="btn btn-dark" style={{marginLeft: '30px'}} />
                         </div>
                     </form>
                 </div>

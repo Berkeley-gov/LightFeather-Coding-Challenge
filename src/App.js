@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NotificationForm from './components/NotificationForm';
 
 
@@ -32,11 +31,11 @@ export default class App extends React.Component {
 
   render() {
     return(
-      <Router>
+      <main>
          <Navbar />
-         <Route path="/" exact={true} component={NotificationForm} />
+         <NotificationForm/>
          <Footer />
-      </Router>
+      </main>
     );
   }
 }
