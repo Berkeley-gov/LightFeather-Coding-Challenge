@@ -1,4 +1,36 @@
-# Getting Started with Create React App
+# LightFeather.io Coding Challenge
+
+## Challenge Overview
+For this challenge, I will be building a simple form that will populate with data from an API
+endpoint. After all validation on the form has been complete, the form response will be
+submitted to another API endpoint. I will also be implementing this simple API which
+provides a list of supervisors and accepts a registration to receive notifications from a given
+supervisor.
+
+## Technologies Used
+- Bootstrap
+- Java (Spring Boot)
+- React.js
+- Axios.js
+- Sass
+- PostgresSQL
+- Chrome Developer Tools
+- Postman
+- Curl
+- DBeaver
+- Intellij Community Edition
+- VSCode
+- Git (GitHub pages)
+- Heroku (API hosting)
+- AWS Relational Database Instance 
+
+## Webpage Link
+https://Berkeley-gov.github.io/LightFeather-coding-challenge
+
+## Backend RESTful API
+https://github.com/Berkeley-gov/coding-challenge-backend
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
